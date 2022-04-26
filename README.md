@@ -38,8 +38,8 @@ $ npm install
 # development
 $ npm run start
 
-# watch mode
-$ npm run start:dev
+# no watch mode
+$ npm run start:nowatch
 
 # production mode
 $ npm run start:prod
