@@ -1,0 +1,118 @@
+[
+  {
+    "_id": "168c0f09-42e6-46aa-95d6-b06829d59c48",
+    "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
+    "containerId": "8c112db4-1d5b-46fd-96f9-f23c73d3f8be",
+    "name": "Register User",
+    "url": "{{URL}}/auth/register",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-04-26T07:30:44.134Z",
+    "modified": "2022-04-26T07:34:52.217Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\":\"abc\",\n    \"email\":\"abc@mail.com\",\n    \"password\":\"123456\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.token",
+        "action": "setto",
+        "value": "{{TOKEN, global}}"
+      }
+    ]
+  },
+  {
+    "_id": "a376b190-c63d-46d9-9240-f9cd0491568c",
+    "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
+    "containerId": "8c112db4-1d5b-46fd-96f9-f23c73d3f8be",
+    "name": "Login User",
+    "url": "{{URL}}/auth/login",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2022-04-26T07:38:23.563Z",
+    "modified": "2022-04-26T07:40:55.517Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"email\":\"abc@mail.com\",\n    \"password\":\"123456\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.token",
+        "action": "setto",
+        "value": "{{TOKEN, global}}"
+      }
+    ]
+  },
+  {
+    "_id": "1c3f1075-34c6-4624-bb8b-129ab3a5127a",
+    "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
+    "containerId": "8c112db4-1d5b-46fd-96f9-f23c73d3f8be",
+    "name": "Update User",
+    "url": "{{URL}}/auth/user",
+    "method": "PATCH",
+    "sortNum": 50000,
+    "created": "2022-04-26T07:41:26.577Z",
+    "modified": "2022-04-26T07:42:45.058Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"abcd\",\n    \"email\":\"abc@mail.com\",\n    \"password\":\"123456\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.token",
+        "action": "setto",
+        "value": "{{TOKEN, global}}"
+      }
+    ]
+  },
+  {
+    "_id": "0942c217-b142-4fac-ae69-aeaf21215be8",
+    "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
+    "containerId": "8c112db4-1d5b-46fd-96f9-f23c73d3f8be",
+    "name": "Delete User",
+    "url": "{{URL}}/auth/user",
+    "method": "DELETE",
+    "sortNum": 60000,
+    "created": "2022-04-26T07:43:14.700Z",
+    "modified": "2022-04-26T07:44:11.382Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"password\":\"123456\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.token",
+        "action": "setto",
+        "value": "{{TOKEN, global}}"
+      }
+    ]
+  }
+]
