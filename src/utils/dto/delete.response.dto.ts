@@ -1,14 +1,14 @@
 import { Exclude, Expose } from 'class-transformer';
 
 @Exclude()
-export class DeleteBlogResponseDto {
+export class DeleteResponseDto {
   @Expose()
   status: string;
 
   @Expose()
   msg: string;
 
-  constructor(partial: Partial<DeleteBlogResponseDto>) {
+  constructor(partial: Partial<DeleteResponseDto>) {
     Object.assign(this, partial);
   }
 }

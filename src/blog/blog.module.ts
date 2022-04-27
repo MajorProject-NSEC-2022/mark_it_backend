@@ -17,6 +17,7 @@ import { BlogSchema } from './blog.model';
   ],
   controllers: [BlogController],
   providers: [BlogService],
+  exports: [MongooseModule],
 })
 export class BlogModule {
   configure(consumer: MiddlewareConsumer) {

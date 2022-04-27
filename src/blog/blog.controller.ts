@@ -16,13 +16,9 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { GetUserID } from 'src/user/utils';
+import { DeleteResponseDto } from 'src/utils';
 import { BlogService } from './blog.service';
-import {
-  BlogResponseDto,
-  CreateBlogRequestDto,
-  DeleteBlogResponseDto,
-  UpdateBlogRequestDto,
-} from './utils';
+import { BlogRequestDto, BlogResponseDto } from './utils';
 
 @Controller('blog')
 @UseInterceptors(ClassSerializerInterceptor)
@@ -39,7 +35,7 @@ export class BlogController {
   @HttpCode(HttpStatus.CREATED)
   async createBlog(
     @GetUserID() userID: string,
-    @Body() blogDetails: CreateBlogRequestDto,
+    @Body() blogDetails: BlogRequestDto,
   ): Promise<BlogResponseDto> {
     return await this.blogService.createBlog({
       ...blogDetails,
@@ -52,7 +48,7 @@ export class BlogController {
   async updateBlog(
     @GetUserID() userID: string,
     @Param('id') blogID: string,
-    @Body() blogDetails: UpdateBlogRequestDto,
+    @Body() blogDetails: BlogRequestDto,
   ) {
     return await this.blogService.updateBlog({
       blogID,
@@ -66,7 +62,7 @@ export class BlogController {
   async deleteBlog(
     @GetUserID() userID: string,
     @Param('id') blogID: string,
-  ): Promise<DeleteBlogResponseDto> {
+  ): Promise<DeleteResponseDto> {
     return await this.blogService.deleteBlog({ blogID, createdBy: userID });
   }
 }

@@ -9,13 +9,13 @@ import {
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { DeleteResponseDto } from 'src/utils';
 import { User } from './user.model';
 import {
   RegisterUserRequestDto,
   GenericUserResposeDto,
   LoginUserRequestDto,
   DeleteUserRequestDto,
-  DeleteUserResponseDto,
   UpdateUserRequestDto,
 } from './utils';
 
@@ -102,7 +102,7 @@ export class UserService {
   async deleteUser({
     id,
     password,
-  }: DeleteUserRequestDto): Promise<DeleteUserResponseDto> {
+  }: DeleteUserRequestDto): Promise<DeleteResponseDto> {
     if (!password)
       throw new UnauthorizedException('Invalid Username or Password');
 

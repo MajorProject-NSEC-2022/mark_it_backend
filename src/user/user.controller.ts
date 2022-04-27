@@ -13,6 +13,7 @@ import {
   Post,
   UseInterceptors,
 } from '@nestjs/common';
+import { DeleteResponseDto } from 'src/utils';
 import { UserService } from './user.service';
 import {
   RegisterUserRequestDto,
@@ -21,7 +22,6 @@ import {
   GetUser,
   UpdateUserRequestDto,
   DeleteUserRequestDto,
-  DeleteUserResponseDto,
 } from './utils';
 
 @Controller('auth')
@@ -64,7 +64,7 @@ export class UserController {
   async delete(
     @GetUser() userID: string,
     @Body() userData: DeleteUserRequestDto,
-  ): Promise<DeleteUserResponseDto> {
+  ): Promise<DeleteResponseDto> {
     return await this.userService.deleteUser({
       ...userData,
       id: userID,
