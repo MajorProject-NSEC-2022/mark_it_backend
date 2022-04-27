@@ -10,3 +10,10 @@ export const GetUser = createParamDecorator(
     return request.user;
   },
 );
+
+export const GetUserID = createParamDecorator(
+  (data: unknown, ctx: ExecutionContext) => {
+    const request = ctx.switchToHttp().getRequest();
+    return request.userID;
+  },
+);
