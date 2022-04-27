@@ -6,7 +6,7 @@
     "global": true,
     "sortNum": -1,
     "created": "2022-04-26T07:27:44.963Z",
-    "modified": "2022-04-26T13:48:19.654Z",
+    "modified": "2022-04-27T18:56:37.142Z",
     "data": [
       {
         "name": "URL",
@@ -14,7 +14,11 @@
       },
       {
         "name": "TOKEN",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2MjY3ZjgyMzUxYzY0ODFhMGY1MzYwYjYiLCJpYXQiOjE2NTA5ODA4OTksImV4cCI6MTY1MzU3Mjg5OX0.J0OTNSkXXU9F_o3ActUAF9L8Kp4PR7sWA6nH8OTmCMA"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2MjY3ZjgyMzUxYzY0ODFhMGY1MzYwYjYiLCJpYXQiOjE2NTEwODU3OTcsImV4cCI6MTY1MzY3Nzc5N30.XaP83Tu4vGLMKCzZwGUgeSrMsSmBqaFbVkTjKF1JC6Y"
+      },
+      {
+        "name": "NEWBLOGID",
+        "value": "626984d069fed84c6e5a0fd5"
       }
     ]
   }

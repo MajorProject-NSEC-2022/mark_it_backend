@@ -124,7 +124,7 @@
     "method": "POST",
     "sortNum": 70000,
     "created": "2022-04-26T13:47:58.143Z",
-    "modified": "2022-04-26T13:59:31.111Z",
+    "modified": "2022-04-27T12:59:10.776Z",
     "headers": [],
     "params": [],
     "body": {
@@ -136,18 +136,25 @@
       "type": "bearer",
       "bearer": "{{TOKEN}}"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.id",
+        "action": "setto",
+        "value": "{{NEWBLOGID, global}}"
+      }
+    ]
   },
   {
     "_id": "198702bc-197e-42f2-a4a5-57e4319ddfe0",
     "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
     "containerId": "f622aa14-ffcf-4f5d-94a6-d03fba78f245",
     "name": "Get Blog",
-    "url": "{{URL}}/blog/6268ed0b7b1a5ca1a3ce80e5",
+    "url": "{{URL}}/blog/{{NEWBLOGID}}",
     "method": "GET",
     "sortNum": 80000,
     "created": "2022-04-27T07:02:56.763Z",
-    "modified": "2022-04-27T07:14:24.421Z",
+    "modified": "2022-04-27T18:07:19.806Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -157,16 +164,16 @@
     "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
     "containerId": "f622aa14-ffcf-4f5d-94a6-d03fba78f245",
     "name": "Update Blog",
-    "url": "{{URL}}/blog/6268ed0b7b1a5ca1a3ce80e5",
+    "url": "{{URL}}/blog/{{NEWBLOGID}}",
     "method": "PATCH",
     "sortNum": 90000,
     "created": "2022-04-27T07:35:35.941Z",
-    "modified": "2022-04-27T07:37:11.812Z",
+    "modified": "2022-04-27T18:38:45.022Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"title\":\"NewBlog2\",\n    \"data\":\"content new\",\n    \"tags\":[\"tag1\",\"tag2\", \"tag new\"]\n}",
+      "raw": "{\n    \"title\":\"NewBlog1\",\n    \"data\":\"content new\",\n    \"tags\":[\"tag1\",\"tag2\", \"tag new\"]\n}",
       "form": []
     },
     "auth": {
@@ -180,11 +187,83 @@
     "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
     "containerId": "f622aa14-ffcf-4f5d-94a6-d03fba78f245",
     "name": "Delete Blog",
-    "url": "{{URL}}/blog/6268ea0daec314330b6c0d27",
+    "url": "{{URL}}/blog/{{NEWBLOGID}}",
     "method": "DELETE",
     "sortNum": 100000,
     "created": "2022-04-27T08:17:42.475Z",
-    "modified": "2022-04-27T08:27:24.557Z",
+    "modified": "2022-04-27T13:16:13.628Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "967843d7-4f3d-4913-bda3-c0e0dc80238f",
+    "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
+    "containerId": "91edf408-bf93-40ea-bcd3-2d44455bb8e3",
+    "name": "Like Blog",
+    "url": "{{URL}}/blog/like/{{NEWBLOGID}}",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-04-27T12:55:50.502Z",
+    "modified": "2022-04-27T18:00:35.201Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "3b36293b-cb93-4761-bcb9-68346581a956",
+    "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
+    "containerId": "91edf408-bf93-40ea-bcd3-2d44455bb8e3",
+    "name": "UnLike Blog",
+    "url": "{{URL}}/blog/unlike/{{NEWBLOGID}}",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-04-27T12:56:07.446Z",
+    "modified": "2022-04-27T19:15:14.323Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "e997e767-0cba-4c37-8953-23c1a8e68139",
+    "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
+    "containerId": "91edf408-bf93-40ea-bcd3-2d44455bb8e3",
+    "name": "Dislike Blog",
+    "url": "{{URL}}/blog/dislike/{{NEWBLOGID}}",
+    "method": "GET",
+    "sortNum": 15000,
+    "created": "2022-04-27T12:56:21.570Z",
+    "modified": "2022-04-27T19:15:34.763Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "1a4b78ae-fd8f-4723-ab24-b1bf6cb025c5",
+    "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
+    "containerId": "91edf408-bf93-40ea-bcd3-2d44455bb8e3",
+    "name": "UnDislike Blog",
+    "url": "{{URL}}/blog/undislike/{{NEWBLOGID}}",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2022-04-27T12:56:34.593Z",
+    "modified": "2022-04-27T19:15:48.547Z",
     "headers": [],
     "params": [],
     "auth": {

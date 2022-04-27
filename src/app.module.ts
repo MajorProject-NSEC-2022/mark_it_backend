@@ -6,6 +6,7 @@ import { BlogModule } from './blog/blog.module';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { LikeAndDislikeModule } from './like-and-dislike/like-and-dislike.module';
 
 require('dotenv').config();
 
@@ -14,6 +15,7 @@ require('dotenv').config();
     MongooseModule.forRoot(process.env.MONGO_URI! + process.env.MONGO_DB_NAME!),
     UserModule,
     BlogModule,
+    LikeAndDislikeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
