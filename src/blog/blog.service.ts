@@ -47,7 +47,7 @@ export class BlogService {
     data,
     tags,
     createdBy,
-  }: UpdateBlogRequestDto) {
+  }: UpdateBlogRequestDto): Promise<BlogResponseDto> {
     const updatedBlog = await this.blogModel.findOneAndUpdate(
       { _id: blogID, createdBy },
       { title, data, tags },

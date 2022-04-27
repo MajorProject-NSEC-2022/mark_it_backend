@@ -49,7 +49,7 @@ export class BlogController {
     @GetUserID() userID: string,
     @Param('id') blogID: string,
     @Body() blogDetails: BlogRequestDto,
-  ) {
+  ): Promise<BlogResponseDto> {
     return await this.blogService.updateBlog({
       blogID,
       ...blogDetails,
