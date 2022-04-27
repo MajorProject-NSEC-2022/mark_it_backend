@@ -20,7 +20,7 @@ export class BlogService {
 
   async getBlogById(blogID: string): Promise<BlogResponseDto> {
     const blog = await this.blogModel.findById(blogID);
-    return new BlogResponseDto({ ...blog.toJSON() });
+    return new BlogResponseDto({ ...blog.toJSON(), id: blog._id.toString() });
   }
 
   async createBlog({
