@@ -6,11 +6,11 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run start:debug",
-    "start:nowatch": "ts-node ./src/main.ts",
+    "start:nowatch": "ts-node -r tsconfig-paths/register ./src/main.ts",
     "start:debug": "nodemon",
     "start:prod": "npm run build:prod && node dist/main.js",
-    "build": "tsc --build",
-    "build:clean": "tsc --build --clean",
+    "build": "tsc && tsc-alias",
+    "build:clean": "rimraf dist",
     "build:prod": "npm run build:clean && npm run build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -56,6 +56,7 @@
     "ts-jest": "^27.0.7",
     "ts-loader": "^9.2.6",
     "ts-node": "^10.7.0",
+    "tsc-alias": "^1.6.7",
     "tsconfig-paths": "^3.11.0",
     "typescript": "^4.4.4"
   },
