@@ -6,15 +6,15 @@
     "global": true,
     "sortNum": -1,
     "created": "2022-04-26T07:27:44.963Z",
-    "modified": "2022-04-26T07:42:54.907Z",
+    "modified": "2022-04-26T13:48:19.654Z",
     "data": [
       {
         "name": "URL",
-        "value": "http://localhost:3000"
+        "value": "http://localhost:3000/api/v1"
       },
       {
         "name": "TOKEN",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2MjY3YTExNWY4Mzc1YzQ1Y2I4NTQ5MjciLCJpYXQiOjE2NTA5NTg5NzQsImV4cCI6MTY1MzU1MDk3NH0.NcWN5gjoekzoqRFyx5vw3i2-EH0mNOSsinAWdt2rzAg"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2MjY3ZjgyMzUxYzY0ODFhMGY1MzYwYjYiLCJpYXQiOjE2NTA5ODA4OTksImV4cCI6MTY1MzU3Mjg5OX0.J0OTNSkXXU9F_o3ActUAF9L8Kp4PR7sWA6nH8OTmCMA"
       }
     ]
   }

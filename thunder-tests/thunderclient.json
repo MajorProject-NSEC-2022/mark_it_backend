@@ -114,5 +114,83 @@
         "value": "{{TOKEN, global}}"
       }
     ]
+  },
+  {
+    "_id": "92de333c-391e-423c-a6d2-42e346b93ff2",
+    "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
+    "containerId": "f622aa14-ffcf-4f5d-94a6-d03fba78f245",
+    "name": "Create Blog",
+    "url": "{{URL}}/blog",
+    "method": "POST",
+    "sortNum": 70000,
+    "created": "2022-04-26T13:47:58.143Z",
+    "modified": "2022-04-26T13:59:31.111Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"title\":\"NewBlog1\",\n    \"data\":\"content\",\n    \"tags\":[\"tag1\",\"tag2\"]\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "198702bc-197e-42f2-a4a5-57e4319ddfe0",
+    "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
+    "containerId": "f622aa14-ffcf-4f5d-94a6-d03fba78f245",
+    "name": "Get Blog",
+    "url": "{{URL}}/blog/6268ed0b7b1a5ca1a3ce80e5",
+    "method": "GET",
+    "sortNum": 80000,
+    "created": "2022-04-27T07:02:56.763Z",
+    "modified": "2022-04-27T07:14:24.421Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "d14e5c4b-23f3-4363-9677-b35a80f720a9",
+    "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
+    "containerId": "f622aa14-ffcf-4f5d-94a6-d03fba78f245",
+    "name": "Update Blog",
+    "url": "{{URL}}/blog/6268ed0b7b1a5ca1a3ce80e5",
+    "method": "PATCH",
+    "sortNum": 90000,
+    "created": "2022-04-27T07:35:35.941Z",
+    "modified": "2022-04-27T07:37:11.812Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"title\":\"NewBlog2\",\n    \"data\":\"content new\",\n    \"tags\":[\"tag1\",\"tag2\", \"tag new\"]\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "6762d046-4fc4-46cf-a2a9-8b53a4b49432",
+    "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
+    "containerId": "f622aa14-ffcf-4f5d-94a6-d03fba78f245",
+    "name": "Delete Blog",
+    "url": "{{URL}}/blog/6268ea0daec314330b6c0d27",
+    "method": "DELETE",
+    "sortNum": 100000,
+    "created": "2022-04-27T08:17:42.475Z",
+    "modified": "2022-04-27T08:27:24.557Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
+    "tests": []
   }
 ]
