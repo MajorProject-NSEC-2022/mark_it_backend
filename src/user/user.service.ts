@@ -15,7 +15,7 @@ import {
   GenericUserResposeDto,
   LoginUserRequestDto,
   DeleteUserRequestDto,
-  DeleteUserResposeDto,
+  DeleteUserResponseDto,
   UpdateUserRequestDto,
 } from './utils';
 
@@ -102,7 +102,7 @@ export class UserService {
   async deleteUser({
     id,
     password,
-  }: DeleteUserRequestDto): Promise<DeleteUserResposeDto> {
+  }: DeleteUserRequestDto): Promise<DeleteUserResponseDto> {
     if (!password)
       throw new UnauthorizedException('Invalid Username or Password');
 
@@ -116,6 +116,7 @@ export class UserService {
     const deletedUser = await this.userModel.findByIdAndDelete(id);
 
     return {
+      status: 'success',
       msg: `User ${deletedUser?.name} successfully deleted`,
     };
   }

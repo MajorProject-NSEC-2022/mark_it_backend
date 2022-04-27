@@ -21,7 +21,7 @@ import {
   GetUser,
   UpdateUserRequestDto,
   DeleteUserRequestDto,
-  DeleteUserResposeDto,
+  DeleteUserResponseDto,
 } from './utils';
 
 @Controller('auth')
@@ -64,7 +64,7 @@ export class UserController {
   async delete(
     @GetUser() userID: string,
     @Body() userData: DeleteUserRequestDto,
-  ): Promise<DeleteUserResposeDto> {
+  ): Promise<DeleteUserResponseDto> {
     return await this.userService.deleteUser({
       ...userData,
       id: userID,
