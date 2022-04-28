@@ -2,12 +2,21 @@
 https://docs.nestjs.com/controllers#controllers
 */
 
-import { Controller, Get, HttpCode, HttpStatus, Param } from '@nestjs/common';
+import {
+  ClassSerializerInterceptor,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Param,
+  UseInterceptors,
+} from '@nestjs/common';
 import { BlogResponseDto } from 'src/blog/utils';
 import { GetUserID } from 'src/user/utils';
 import { LikeAndDislikeService } from './like-and-dislike.service';
 
 @Controller('blog/')
+@UseInterceptors(ClassSerializerInterceptor)
 export class LikeAndDislikeController {
   constructor(private readonly likeAndDislikeService: LikeAndDislikeService) {}
 

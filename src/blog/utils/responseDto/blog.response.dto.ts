@@ -1,11 +1,12 @@
-import { Exclude, Expose, Transform } from 'class-transformer';
+import { Exclude, Expose, Transform, Type } from 'class-transformer';
+import mongoose from 'mongoose';
 
 @Exclude()
 export class BlogResponseDto {
-  // @Expose({ name: 'id' })
-  // @Transform(({ value }) => value.toString(), { toPlainOnly: true })
-  @Expose()
-  id: string;
+  @Expose({ name: 'id' })
+  @Type(() => String)
+  @Transform(({ value }) => value.toString(), { toClassOnly: true })
+  _id: mongoose.Types.ObjectId;
 
   @Expose()
   title: string;
@@ -24,9 +25,11 @@ export class BlogResponseDto {
 
   // @Expose()
   // comments: any;
+
   @Expose()
+  @Type(() => String)
   @Transform(({ value }) => value.toString())
-  createdBy: string;
+  createdBy: mongoose.Types.ObjectId;
 
   constructor(partial: Partial<BlogResponseDto>) {
     Object.assign(this, partial);

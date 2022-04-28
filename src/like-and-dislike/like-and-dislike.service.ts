@@ -4,7 +4,6 @@ https://docs.nestjs.com/providers#services
 
 import { ForbiddenException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import mongoose from 'mongoose';
 import { Model } from 'mongoose';
 import { Blog } from 'src/blog/blog.model';
 import { BlogResponseDto } from 'src/blog/utils';
@@ -30,10 +29,7 @@ export class LikeAndDislikeService {
     );
 
     if (!updatedBlog) throw new ForbiddenException('Resource Not Found');
-    return new BlogResponseDto({
-      ...updatedBlog.toJSON(),
-      id: updatedBlog._id.toString(),
-    });
+    return new BlogResponseDto({ ...updatedBlog.toJSON() });
   }
 
   async likeBlog({

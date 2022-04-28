@@ -94,7 +94,7 @@
     "method": "DELETE",
     "sortNum": 60000,
     "created": "2022-04-26T07:43:14.700Z",
-    "modified": "2022-04-26T07:44:11.382Z",
+    "modified": "2022-04-28T08:55:28.317Z",
     "headers": [],
     "params": [],
     "body": {
@@ -106,14 +106,7 @@
       "type": "bearer",
       "bearer": "{{TOKEN}}"
     },
-    "tests": [
-      {
-        "type": "set-env-var",
-        "custom": "json.token",
-        "action": "setto",
-        "value": "{{TOKEN, global}}"
-      }
-    ]
+    "tests": []
   },
   {
     "_id": "92de333c-391e-423c-a6d2-42e346b93ff2",

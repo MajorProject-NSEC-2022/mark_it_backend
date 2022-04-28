@@ -19,7 +19,12 @@ export class LikeAndDislikeModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(AuthenticationMiddleware)
-      .forRoutes({ path: '*', method: RequestMethod.ALL });
-      // .forRoutes(LikeAndDislikeController);
+      .forRoutes(
+        { path: 'blog/like/*', method: RequestMethod.ALL },
+        { path: 'blog/unlike/*', method: RequestMethod.ALL },
+        { path: 'blog/dislike/*', method: RequestMethod.ALL },
+        { path: 'blog/undislike/*', method: RequestMethod.ALL },
+      );
+    // .forRoutes(LikeAndDislikeController);
   }
 }

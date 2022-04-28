@@ -20,7 +20,7 @@ export class BlogService {
 
   async getBlogById(blogID: string): Promise<BlogResponseDto> {
     const blog = await this.blogModel.findById(blogID);
-    return new BlogResponseDto({ ...blog.toJSON(), id: blog._id.toString() });
+    return new BlogResponseDto({ ...blog.toJSON() });
   }
 
   async createBlog({
@@ -38,7 +38,7 @@ export class BlogService {
     const blog = await doc.save();
 
     if (!blog) throw new ForbiddenException('Resource Not Found');
-    return new BlogResponseDto({ ...blog.toJSON(), id: blog._id.toString() });
+    return new BlogResponseDto({ ...blog.toJSON() });
   }
 
   async updateBlog({
@@ -55,10 +55,7 @@ export class BlogService {
     );
 
     if (!updatedBlog) throw new ForbiddenException('Resource Not Found');
-    return new BlogResponseDto({
-      ...updatedBlog.toJSON(),
-      id: updatedBlog._id.toString(),
-    });
+    return new BlogResponseDto({ ...updatedBlog.toJSON() });
   }
 
   async deleteBlog({

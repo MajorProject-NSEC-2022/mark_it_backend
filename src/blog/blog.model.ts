@@ -1,13 +1,13 @@
 import * as mongoose from 'mongoose';
 
-export interface Blog {
-  id: string;
+export class Blog {
+  _id: mongoose.Types.ObjectId;
   title: string;
   data: string;
   tags: string[];
   likes: number;
   dislikes: number;
-  createdBy: string;
+  createdBy: mongoose.Types.ObjectId;
 }
 
 export const BlogSchema = new mongoose.Schema(
