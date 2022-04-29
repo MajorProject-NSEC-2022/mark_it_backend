@@ -1,8 +1,9 @@
 import { Exclude, Expose, Transform, Type } from 'class-transformer';
 import mongoose from 'mongoose';
+import { Blog } from 'src/blog/blog.model';
 
 @Exclude()
-export class BlogResponseDto {
+export class BlogResponseDto extends Blog {
   @Expose({ name: 'id' })
   @Type(() => String)
   @Transform(({ value }) => value.toString(), { toClassOnly: true })
@@ -15,13 +16,24 @@ export class BlogResponseDto {
   data: string;
 
   @Expose()
+  @Type(() => String)
   tags: string[];
 
   @Expose()
-  likes: number;
+  likesNum: number;
 
   @Expose()
-  dislikes: number;
+  @Type(() => String)
+  @Transform(({ value }) => value.map((_) => _.toString()))
+  likes: mongoose.Types.ObjectId[];
+
+  @Expose()
+  dislikesNum: number;
+
+  @Expose()
+  @Type(() => String)
+  @Transform(({ value }) => value.map((_) => _.toString()))
+  dislikes: mongoose.Types.ObjectId[];
 
   // @Expose()
   // comments: any;
@@ -32,7 +44,10 @@ export class BlogResponseDto {
   createdBy: mongoose.Types.ObjectId;
 
   constructor(partial: Partial<BlogResponseDto>) {
+    super();
     Object.assign(this, partial);
+    this.likesNum = this.likes.length || 0;
+    this.dislikesNum = this.dislikes.length || 0;
   }
 }
 

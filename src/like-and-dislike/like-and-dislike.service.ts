@@ -16,17 +16,18 @@ export class LikeAndDislikeService {
   async modifyBlog({
     createdBy,
     blogID,
-    change,
+    update,
   }: {
     createdBy: string;
     blogID: string;
-    change: { likes: number } | { dislikes: number };
+    update;
   }): Promise<BlogResponseDto> {
     const updatedBlog = await this.blogModel.findOneAndUpdate(
       { _id: blogID, createdBy },
-      { $inc: change },
+      update,
       { new: true, runValidators: true },
     );
+    console.log(updatedBlog);
 
     if (!updatedBlog) throw new ForbiddenException('Resource Not Found');
     return new BlogResponseDto({ ...updatedBlog.toJSON() });
@@ -39,8 +40,11 @@ export class LikeAndDislikeService {
     createdBy: string;
     blogID: string;
   }): Promise<BlogResponseDto> {
-    const change = { likes: 1 };
-    return await this.modifyBlog({ createdBy, blogID, change });
+    const update = {
+      $inc: { likesNum: 1 },
+      $addToSet: { likes: createdBy },
+    };
+    return await this.modifyBlog({ createdBy, blogID, update });
   }
 
   async unLikeBlog({
@@ -50,8 +54,8 @@ export class LikeAndDislikeService {
     createdBy: string;
     blogID: string;
   }): Promise<BlogResponseDto> {
-    const change = { likes: -1 };
-    return await this.modifyBlog({ createdBy, blogID, change });
+    const update = { $inc: { likesNum: -1 }, $pull: { likes: createdBy } };
+    return await this.modifyBlog({ createdBy, blogID, update });
   }
 
   async dislikeBlog({
@@ -61,8 +65,11 @@ export class LikeAndDislikeService {
     createdBy: string;
     blogID: string;
   }): Promise<BlogResponseDto> {
-    const change = { dislikes: 1 };
-    return await this.modifyBlog({ createdBy, blogID, change });
+    const update = {
+      $inc: { dislikesNum: 1 },
+      $addToSet: { dislikes: createdBy },
+    };
+    return await this.modifyBlog({ createdBy, blogID, update });
   }
 
   async unDislikeBlog({
@@ -72,7 +79,10 @@ export class LikeAndDislikeService {
     createdBy: string;
     blogID: string;
   }): Promise<BlogResponseDto> {
-    const change = { dislikes: -1 };
-    return await this.modifyBlog({ createdBy, blogID, change });
+    const update = {
+      $inc: { dislikesNum: -1 },
+      $pull: { dislikes: createdBy },
+    };
+    return await this.modifyBlog({ createdBy, blogID, update });
   }
 }

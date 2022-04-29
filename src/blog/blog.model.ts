@@ -1,16 +1,18 @@
-import * as mongoose from 'mongoose';
+import { Schema, Types } from 'mongoose';
 
 export class Blog {
-  _id: mongoose.Types.ObjectId;
+  _id: Types.ObjectId;
   title: string;
   data: string;
   tags: string[];
-  likes: number;
-  dislikes: number;
-  createdBy: mongoose.Types.ObjectId;
+  likesNum: number;
+  likes: Types.ObjectId[];
+  dislikesNum: number;
+  dislikes: Types.ObjectId[];
+  createdBy: Types.ObjectId;
 }
 
-export const BlogSchema = new mongoose.Schema(
+export const BlogSchema = new Schema(
   {
     title: {
       type: String,
@@ -26,15 +28,15 @@ export const BlogSchema = new mongoose.Schema(
       trim: true,
     },
     likes: {
-      type: Number,
-      default: 0,
+      type: [Schema.Types.ObjectId],
+      ref: 'User',
     },
     dislikes: {
-      type: Number,
-      default: 0,
+      type: [Schema.Types.ObjectId],
+      ref: 'User',
     },
     createdBy: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'User',
       required: [true, 'Please provide user'],
     },
