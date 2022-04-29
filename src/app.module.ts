@@ -1,3 +1,4 @@
+import { SearchModule } from './search/search.module';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
@@ -12,6 +13,7 @@ require('dotenv').config();
 
 @Module({
   imports: [
+    SearchModule,
     MongooseModule.forRoot(process.env.MONGO_URI! + process.env.MONGO_DB_NAME!),
     UserModule,
     BlogModule,

@@ -8,7 +8,7 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-04-26T07:30:44.134Z",
-    "modified": "2022-04-26T07:34:52.217Z",
+    "modified": "2022-04-29T05:29:11.389Z",
     "headers": [],
     "params": [],
     "body": {
@@ -22,6 +22,12 @@
         "custom": "json.token",
         "action": "setto",
         "value": "{{TOKEN, global}}"
+      },
+      {
+        "type": "set-env-var",
+        "custom": "json.userID",
+        "action": "setto",
+        "value": "{{NEWUSERID, global}}"
       }
     ]
   },
@@ -34,7 +40,7 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2022-04-26T07:38:23.563Z",
-    "modified": "2022-04-26T07:40:55.517Z",
+    "modified": "2022-04-29T05:29:32.348Z",
     "headers": [],
     "params": [],
     "body": {
@@ -52,6 +58,12 @@
         "custom": "json.token",
         "action": "setto",
         "value": "{{TOKEN, global}}"
+      },
+      {
+        "type": "set-env-var",
+        "custom": "json.userID",
+        "action": "setto",
+        "value": "{{NEWUSERID, global}}"
       }
     ]
   },
@@ -64,7 +76,7 @@
     "method": "PATCH",
     "sortNum": 50000,
     "created": "2022-04-26T07:41:26.577Z",
-    "modified": "2022-04-26T07:42:45.058Z",
+    "modified": "2022-04-29T05:29:47.748Z",
     "headers": [],
     "params": [],
     "body": {
@@ -82,6 +94,12 @@
         "custom": "json.token",
         "action": "setto",
         "value": "{{TOKEN, global}}"
+      },
+      {
+        "type": "set-env-var",
+        "custom": "json.userID",
+        "action": "setto",
+        "value": "{{NEWUSERID, global}}"
       }
     ]
   },
@@ -117,12 +135,12 @@
     "method": "POST",
     "sortNum": 70000,
     "created": "2022-04-26T13:47:58.143Z",
-    "modified": "2022-04-27T12:59:10.776Z",
+    "modified": "2022-04-29T06:16:20.796Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"title\":\"NewBlog1\",\n    \"data\":\"content\",\n    \"tags\":[\"tag1\",\"tag2\"]\n}",
+      "raw": "{\n    \"title\":\"NewBlog2\",\n    \"data\":\"content\",\n    \"tags\":[\"tag1\",\"tag3\"]\n}",
       "form": []
     },
     "auth": {
@@ -259,6 +277,73 @@
     "modified": "2022-04-27T19:15:48.547Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "f7bcb085-1cec-4d37-9cfe-10fc7b43e53c",
+    "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
+    "containerId": "bba8f95d-17e0-4299-9443-bdf3a4e5b455",
+    "name": "Get User Details Public",
+    "url": "{{URL}}/user/{{NEWUSERID}}",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-04-29T05:26:09.184Z",
+    "modified": "2022-04-29T05:30:09.813Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "2b655ca5-c1fb-467a-b3ea-0c8bdde743d9",
+    "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
+    "containerId": "bba8f95d-17e0-4299-9443-bdf3a4e5b455",
+    "name": "Get Feed",
+    "url": "{{URL}}/feed/{{NEWBLOGID}}",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-04-29T05:26:38.404Z",
+    "modified": "2022-04-29T05:30:32.893Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "3c016891-a391-484e-b5c9-a8a6db0d8a54",
+    "colId": "8aa94af4-1773-42f1-8397-0965bcbf10c1",
+    "containerId": "bba8f95d-17e0-4299-9443-bdf3a4e5b455",
+    "name": "Search Blogs",
+    "url": "{{URL}}/search?search=Hello&filter=[tag3,tag2]&user=aa&page=1",
+    "method": "GET",
+    "sortNum": 15000,
+    "created": "2022-04-29T05:30:57.614Z",
+    "modified": "2022-04-29T07:24:20.089Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "search",
+        "value": "Hello",
+        "isPath": false
+      },
+      {
+        "name": "filter",
+        "value": "[tag3,tag2]",
+        "isPath": false
+      },
+      {
+        "name": "user",
+        "value": "aa",
+        "isPath": false
+      },
+      {
+        "name": "page",
+        "value": "1",
+        "isPath": false
+      }
+    ],
     "auth": {
       "type": "bearer",
       "bearer": "{{TOKEN}}"

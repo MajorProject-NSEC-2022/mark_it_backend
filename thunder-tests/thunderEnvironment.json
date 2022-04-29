@@ -6,7 +6,7 @@
     "global": true,
     "sortNum": -1,
     "created": "2022-04-26T07:27:44.963Z",
-    "modified": "2022-04-28T16:53:51.357Z",
+    "modified": "2022-04-29T06:16:20.794Z",
     "data": [
       {
         "name": "URL",
@@ -18,7 +18,11 @@
       },
       {
         "name": "NEWBLOGID",
-        "value": "626ac69f33577759bd388242"
+        "value": "626b82b4126c04db5aefdcf4"
+      },
+      {
+        "name": "NEWUSERID",
+        "value": ""
       }
     ]
   }
