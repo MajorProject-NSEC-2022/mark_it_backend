@@ -13,6 +13,7 @@ import {
   Post,
   UseInterceptors,
 } from '@nestjs/common';
+import { ApiBearerAuth, ApiCreatedResponse, ApiOkResponse, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { DeleteResponseDto } from 'src/utils';
 import { UserService } from './user.service';
 import {
@@ -24,11 +25,16 @@ import {
   DeleteUserRequestDto,
 } from './utils';
 
+@ApiBearerAuth()
+@ApiTags('Users')
 @Controller('auth')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post('register')
+  @ApiOperation({ summary: 'Register an user' })
+  @ApiCreatedResponse()
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
   @HttpCode(HttpStatus.CREATED)
   @UseInterceptors(ClassSerializerInterceptor)
   async register(
@@ -38,6 +44,9 @@ export class UserController {
   }
 
   @Post('login')
+  @ApiOperation({ summary: 'Login the user' })
+  @ApiOkResponse()
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
   @HttpCode(HttpStatus.CREATED)
   @UseInterceptors(ClassSerializerInterceptor)
   async login(
@@ -47,6 +56,9 @@ export class UserController {
   }
 
   @Patch('user')
+  @ApiOperation({ summary: 'Update user details' })
+  @ApiOkResponse()
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
   @HttpCode(HttpStatus.OK)
   @UseInterceptors(ClassSerializerInterceptor)
   async update(
@@ -60,6 +72,9 @@ export class UserController {
   }
 
   @Delete('user')
+  @ApiOperation({ summary: 'Delete user' })
+  @ApiOkResponse()
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
   @HttpCode(HttpStatus.OK)
   async delete(
     @GetUser() userID: string,
