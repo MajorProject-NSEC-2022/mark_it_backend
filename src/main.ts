@@ -6,7 +6,6 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  
   const config = new DocumentBuilder()
     .setTitle('Mark.it API')
     .setDescription('The backend API for Mark.it')
@@ -14,7 +13,6 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
-
 
   app.setGlobalPrefix('/api/v1');
   app.enableCors({

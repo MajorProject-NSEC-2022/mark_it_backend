@@ -13,5 +13,9 @@
     "node_modules": true,
     ".vscode": true
   },
-  "explorerExclude.backup": null
+  "explorerExclude.backup": null,
+  "editor.tokenColorCustomizations": {
+    "comments": "",
+    "textMateRules": []
+  }
 }

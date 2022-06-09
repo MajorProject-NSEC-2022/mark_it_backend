@@ -30,6 +30,10 @@ export class UserService {
   }: RegisterUserRequestDto): Promise<GenericUserResposeDto> {
     if (await this.userModel.findOne({ email }).exec())
       throw new UnauthorizedException('Invalid Username or Password');
+    if (password.length < 5)
+      throw new UnauthorizedException(
+        'Password should be atleast more than 5 characters',
+      );
 
     const user = new this.userModel({ name, email, password });
     const result = await user.save();
